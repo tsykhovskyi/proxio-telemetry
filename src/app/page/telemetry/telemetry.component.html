@@ -1,6 +1,8 @@
-<mat-grid-list cols="2">
-
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        {{ data | json }}
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <p>telemetry works!</p>
+    </mat-grid-tile>
 </mat-grid-list>
-
-<mat-slider></mat-slider>
-<p>telemetry works!</p>

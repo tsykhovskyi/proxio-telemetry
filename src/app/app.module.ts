@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TelemetryComponent } from './page/telemetry/telemetry.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSliderModule } from '@angular/material/slider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, TelemetryComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatGridListModule, MatSliderModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatGridListModule],
   providers: [],
 
   bootstrap: [AppComponent]
