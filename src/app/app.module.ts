@@ -9,16 +9,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { HttpMessageListComponent } from './ui/http-message-list/http-message-list.component';
+import { HttpMessageComponent } from './ui/http-message/http-message.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HeadersComponent } from './ui/http-message/headers/headers.component';
 
 @NgModule({
-  declarations: [AppComponent, TelemetryComponent, HttpMessageListComponent],
+  declarations: [AppComponent, TelemetryComponent, HttpMessageListComponent, HttpMessageComponent, HeadersComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule
   ],
   providers: [],
 
