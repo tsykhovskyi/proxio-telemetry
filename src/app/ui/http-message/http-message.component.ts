@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpMessageModel } from '../../utility/model/http-message.model';
+import { HttpMessageModel } from '../../utility/response/http-message.model';
 
 @Component({
   selector: 'app-http-message-info',

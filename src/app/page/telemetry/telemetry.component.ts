@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrafficHttpService } from '../../data-access/traffic-http.service';
-import { HttpMessageModel } from '../../utility/model/http-message.model';
+import { HttpMessageModel } from '../../utility/response/http-message.model';
 
 @Component({
   selector: 'app-telemetry',

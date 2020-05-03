@@ -12,9 +12,21 @@ import { HttpMessageListComponent } from './ui/http-message-list/http-message-li
 import { HttpMessageComponent } from './ui/http-message/http-message.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HeadersComponent } from './ui/http-message/headers/headers.component';
+import { PrettierComponent } from './ui/http-message/prettier/prettier.component';
+import { HtmlComponent } from './ui/http-message/prettier/html/html.component';
+import { ImageComponent } from './ui/http-message/prettier/image/image.component';
 
 @NgModule({
-  declarations: [AppComponent, TelemetryComponent, HttpMessageListComponent, HttpMessageComponent, HeadersComponent],
+  declarations: [
+    AppComponent,
+    TelemetryComponent,
+    HttpMessageListComponent,
+    HttpMessageComponent,
+    HeadersComponent,
+    PrettierComponent,
+    HtmlComponent,
+    ImageComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Headers } from '../../../utility/model/http-message.model';
+import { Headers } from '../../../utility/response/http-message.model';
 
 @Component({
   selector: 'app-headers',
