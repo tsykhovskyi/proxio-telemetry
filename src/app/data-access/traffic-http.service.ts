@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpMessageModel } from '../utility/model/http-message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class TrafficHttpService {
     this.apiHost = '';
   }
 
-  public getTraffic() {
+  public getTraffic(): Observable<HttpMessageModel[]> {
+    // @ts-ignore
     return this.http.get(this.apiHost + '/m');
   }
 }

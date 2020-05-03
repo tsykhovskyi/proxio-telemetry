@@ -7,10 +7,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TelemetryComponent } from './page/telemetry/telemetry.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
+import { HttpMessageListComponent } from './ui/http-message-list/http-message-list.component';
 
 @NgModule({
-  declarations: [AppComponent, TelemetryComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatGridListModule],
+  declarations: [AppComponent, TelemetryComponent, HttpMessageListComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatListModule
+  ],
   providers: [],
 
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+<div class="table-container">
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <th>Method</th>
+      <th>URI</th>
+      <th>Time</th>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let message of messages"
+        [ngClass]="{ 'has-background-grey-light': activeMessage === message }"
+        (click)="onClick(message)"
+        style="cursor: pointer"
+      >
+        <td>
+          <span class="tag is-success">{{ message.Request.Method }}</span>
+        </td>
+        <td>{{ message.Request.URI }}</td>
+        <td>{{ message.Time.TimeTaken | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

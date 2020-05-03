@@ -1,8 +1,13 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>
-        {{ data | json }}
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <p>telemetry works!</p>
-    </mat-grid-tile>
+<mat-grid-list cols="10" rowHeight="100%">
+  <mat-grid-tile [colspan]="4">
+    <div class="content">
+      <app-http-message-list [messages]="traffic" (selected)="activeMessage=$event"></app-http-message-list>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6">
+    <div class="content" *ngIf="activeMessage">
+      <h1>telemetry</h1>
+      {{ activeMessage | json }}
+    </div>
+  </mat-grid-tile>
 </mat-grid-list>
