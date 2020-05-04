@@ -15,6 +15,7 @@ import { HeadersComponent } from './ui/http-message/headers/headers.component';
 import { PrettierComponent } from './ui/http-message/prettier/prettier.component';
 import { HtmlComponent } from './ui/http-message/prettier/html/html.component';
 import { ImageComponent } from './ui/http-message/prettier/image/image.component';
+import { JsonComponent } from './ui/http-message/prettier/json/json.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ImageComponent } from './ui/http-message/prettier/image/image.component
     HeadersComponent,
     PrettierComponent,
     HtmlComponent,
-    ImageComponent
+    ImageComponent,
+    JsonComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 <div [ngSwitch]="contentType">
   <app-html *ngSwitchCase="ContentType.HTML" [content]="body"></app-html>
   <app-image *ngSwitchCase="ContentType.Image" [content]="body"></app-image>
+  <app-json *ngSwitchCase="ContentType.JSON" [content]="body"></app-json>
   <div *ngSwitchDefault>Unable to define content</div>
 </div>
