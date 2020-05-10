@@ -1,12 +1,12 @@
-<mat-grid-list cols="10" rowHeight="100%">
-  <mat-grid-tile [colspan]="4">
+<div class="columns">
+  <div class="column is-two-fifths">
     <div class="content">
       <app-http-message-list [messages]="traffic" (selected)="activeMessage = $event"></app-http-message-list>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="6">
+  </div>
+  <div class="column">
     <div class="content" *ngIf="activeMessage">
       <app-http-message-info [message]="activeMessage"></app-http-message-info>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>

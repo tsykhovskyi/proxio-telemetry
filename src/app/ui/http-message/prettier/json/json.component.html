@@ -1,7 +1,24 @@
-<table class="table">
+<table class="table is-hoverable">
   <tbody>
-    <tr *ngFor="let row of json">
-      <td>{{ row | json }}</td>
+    <tr *ngFor="let row of jsonRows | expandedNodes: collapsedPaths" [attr.data-path]="row.path">
+      <td
+        [style.padding-left.px]="row.depth * 20"
+        [class.expandable]="row.value === undefined"
+        (click)="toogleExpanded(row.path)"
+      >
+        <span class="icon" *ngIf="row.value === undefined">
+          <i
+            class="fas fa-arrow-down"
+            [ngClass]="{ 'fa-arrow-down': row.expanded, 'fa-arrow-right': !row.expanded }"
+          ></i>
+        </span>
+        <span [class.is-propKey]="row.value !== undefined" class="color--key">{{ row.key }}:</span>
+      </td>
+      <td>
+        <span [ngClass]="'color--' + row.valueType">
+          {{ row.valueType === 'string' ? '"' + row.value + '"' : row.value }}
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>

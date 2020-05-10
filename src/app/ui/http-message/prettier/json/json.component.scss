@@ -1,0 +1,36 @@
+table {
+  display: flex;
+  tr {
+    td,
+    th {
+      border: 0;
+      padding: 0;
+      &.expandable{
+        cursor: pointer;
+      }
+      &:nth-child(2) {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+span {
+  &.is-propKey {
+    padding-left: 1.5rem;
+  }
+  &.color {
+    &--key {
+      color: #0074e8;
+    }
+    &--boolean {
+      color: firebrick;
+    }
+    &--number {
+      color: darkblue;
+    }
+    &--string {
+      color: green;
+    }
+  }
+}
