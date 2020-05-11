@@ -3,7 +3,6 @@ export interface JsonRow {
   depth: number;
   path: string;
   value?: string;
-  valueType?: string;
 }
 
 interface PathNode {
@@ -59,7 +58,7 @@ export class JsonIterator implements IterableIterator<JsonRow> {
     if (typeof arr[iterator] === 'object') {
       this.objStack.push({ nested: arr[iterator], iterator: 0, depth: depth + 1, path: path + iterator + '/' });
     } else {
-      this.setValue(row, arr[iterator]);
+      row.value = arr[iterator];
     }
 
     return row;
@@ -81,15 +80,10 @@ export class JsonIterator implements IterableIterator<JsonRow> {
         path: path + properties[iterator] + '/'
       });
     } else {
-      this.setValue(row, obj[properties[iterator]]);
+      row.value = obj[properties[iterator]];
     }
 
     return row;
-  }
-
-  private setValue(row: JsonRow, val: any) {
-    row.value = val;
-    row.valueType = typeof val;
   }
 
   [Symbol.iterator](): IterableIterator<JsonRow> {

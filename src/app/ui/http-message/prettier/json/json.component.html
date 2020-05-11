@@ -40,8 +40,8 @@
         <span [class.is-propKey]="row.value !== undefined" class="color--key">{{ row.key }}:</span>
       </td>
       <td>
-        <span [ngClass]="'color--' + row.valueType">
-          {{ row.valueType === 'string' ? '"' + row.value + '"' : row.value }}
+        <span [ngClass]="'color--' + typeOf(row.value)">
+          {{ typeOf(row.value) === 'string' ? '"' + row.value + '"' : row.value }}
         </span>
       </td>
     </tr>

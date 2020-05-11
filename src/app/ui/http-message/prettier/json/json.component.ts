@@ -36,4 +36,8 @@ export class JsonComponent {
   collapseAll() {
     this.collapsedPaths = this.jsonRows.filter(row => row.value === undefined).map(row => row.path + '/');
   }
+
+  typeOf(v: any): string {
+    return typeof v;
+  }
 }
