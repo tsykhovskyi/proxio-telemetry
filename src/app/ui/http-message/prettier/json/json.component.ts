@@ -27,4 +27,12 @@ export class JsonComponent {
     }
     this.collapsedPaths = [...this.collapsedPaths];
   }
+
+  expandAll() {
+    this.collapsedPaths = [];
+  }
+
+  collapseAll() {
+    this.collapsedPaths = this.jsonRows.filter(row => row.value === undefined).map(row => row.path + '/');
+  }
 }

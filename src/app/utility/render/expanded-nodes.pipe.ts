@@ -9,7 +9,6 @@ export interface ExpandableRow {
 export class ExpandedNodesPipe implements PipeTransform {
   transform(rows: JsonRow[], collapsedPaths: string[]): Array<JsonRow | ExpandableRow> {
     return rows
-      .map(row => ({ ...row, expanded: collapsedPaths.findIndex(v => row.path + '/' === v) === -1 }))
       .filter(row => {
         for (const collapsedPath of collapsedPaths) {
           if (row.path.startsWith(collapsedPath)) {
@@ -17,6 +16,7 @@ export class ExpandedNodesPipe implements PipeTransform {
           }
         }
         return true;
-      });
+      })
+      .map(row => ({ ...row, expanded: collapsedPaths.findIndex(v => row.path + '/' === v) === -1 }));
   }
 }

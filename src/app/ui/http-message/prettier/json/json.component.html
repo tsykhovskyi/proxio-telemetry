@@ -1,3 +1,28 @@
+<div class="field is-grouped">
+  <p class="control">
+    <button class="button is-small is-light" (click)="expandAll()">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+      <span>Expand all</span>
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-small is-light" (click)="collapseAll()">
+      <span class="icon">
+        <i class="fas fa-minus"></i>
+      </span>
+      <span>Collapse all</span>
+    </button>
+  </p>
+  <p class="control has-icons-left">
+    <input class="input is-small" type="text" placeholder="search..." />
+    <span class="icon is-small is-left">
+      <i class="fas fa-search"></i>
+    </span>
+  </p>
+</div>
+
 <table class="table is-hoverable">
   <tbody>
     <tr *ngFor="let row of jsonRows | expandedNodes: collapsedPaths" [attr.data-path]="row.path">
@@ -7,10 +32,7 @@
         (click)="toogleExpanded(row.path)"
       >
         <span class="icon" *ngIf="row.value === undefined">
-          <i
-            class="fas fa-arrow-down"
-            [ngClass]="{ 'fa-arrow-down': row.expanded, 'fa-arrow-right': !row.expanded }"
-          ></i>
+          <i class="fas" [ngClass]="{ 'fa-minus': row.expanded, 'fa-plus': !row.expanded }"></i>
         </span>
         <span [class.is-propKey]="row.value !== undefined" class="color--key">{{ row.key }}:</span>
       </td>
