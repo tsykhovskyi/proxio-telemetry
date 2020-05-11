@@ -16,7 +16,7 @@
     </button>
   </p>
   <p class="control has-icons-left">
-    <input class="input is-small" type="text" placeholder="search..." />
+    <input class="input is-small" type="text" placeholder="search..." [(ngModel)]="filterQuery" />
     <span class="icon is-small is-left">
       <i class="fas fa-search"></i>
     </span>
@@ -25,7 +25,10 @@
 
 <table class="table is-hoverable">
   <tbody>
-    <tr *ngFor="let row of jsonRows | expandedNodes: collapsedPaths" [attr.data-path]="row.path">
+    <tr
+      *ngFor="let row of jsonRows | jsonFilter: filterQuery | expandedNodes: collapsedPaths"
+      [attr.data-path]="row.path"
+    >
       <td
         [style.padding-left.px]="row.depth * 20"
         [class.expandable]="row.value === undefined"

@@ -9,6 +9,7 @@ import { JsonIterator, JsonRow } from '../../../../utility/render/json-renderer.
 export class JsonComponent {
   jsonRows: JsonRow[];
 
+  filterQuery: string = '';
   collapsedPaths: string[] = [];
 
   @Input()

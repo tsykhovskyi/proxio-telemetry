@@ -15,6 +15,8 @@ import { HtmlComponent } from './ui/http-message/prettier/html/html.component';
 import { ImageComponent } from './ui/http-message/prettier/image/image.component';
 import { JsonComponent } from './ui/http-message/prettier/json/json.component';
 import { ExpandedNodesPipe } from './utility/render/expanded-nodes.pipe';
+import { JsonFilterPipe } from './utility/render/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,10 @@ import { ExpandedNodesPipe } from './utility/render/expanded-nodes.pipe';
     HtmlComponent,
     ImageComponent,
     JsonComponent,
-    ExpandedNodesPipe
+    ExpandedNodesPipe,
+    JsonFilterPipe
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, FormsModule],
   providers: [],
 
   bootstrap: [AppComponent]
