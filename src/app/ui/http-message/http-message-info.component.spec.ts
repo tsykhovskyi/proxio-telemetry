@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttpMessageComponent } from './http-message.component';
+import { HttpMessageInfoComponent } from './http-message-info.component';
 
 describe('HttpMessageInfoComponent', () => {
-  let component: HttpMessageComponent;
-  let fixture: ComponentFixture<HttpMessageComponent>;
+  let component: HttpMessageInfoComponent;
+  let fixture: ComponentFixture<HttpMessageInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HttpMessageComponent]
+      declarations: [HttpMessageInfoComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HttpMessageComponent);
+    fixture = TestBed.createComponent(HttpMessageInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

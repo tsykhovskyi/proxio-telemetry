@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { JsonIterator, JsonRow } from '../../../../utility/render/json-renderer.utility';
 
 @Component({
   selector: 'app-json',
   templateUrl: './json.component.html',
-  styleUrls: ['./json.component.scss']
+  styleUrls: ['./json.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JsonComponent {
   jsonRows: JsonRow[];

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TelemetryComponent } from './page/telemetry/telemetry.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpMessageListComponent } from './ui/http-message-list/http-message-list.component';
-import { HttpMessageComponent } from './ui/http-message/http-message.component';
+import { HttpMessageInfoComponent } from './ui/http-message/http-message-info.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HeadersComponent } from './ui/http-message/headers/headers.component';
 import { PrettierComponent } from './ui/http-message/prettier/prettier.component';
@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     TelemetryComponent,
     HttpMessageListComponent,
-    HttpMessageComponent,
+    HttpMessageInfoComponent,
     HeadersComponent,
     PrettierComponent,
     HtmlComponent,

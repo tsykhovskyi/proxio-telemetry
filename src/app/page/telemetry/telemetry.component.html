@@ -1,7 +1,7 @@
 <div class="columns">
   <div class="column is-two-fifths">
     <div class="content">
-      <app-http-message-list [messages]="traffic" (selected)="activeMessage = $event"></app-http-message-list>
+      <app-http-message-list [messages]="messages$ | async" (selected)="activeMessage = $event"></app-http-message-list>
     </div>
   </div>
   <div class="column">

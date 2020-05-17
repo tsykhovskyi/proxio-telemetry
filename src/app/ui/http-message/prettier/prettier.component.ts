@@ -1,11 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Headers } from '../../../utility/response/http-message.model';
 import { ContentGuesserUtility, ContentType } from '../../../utility/content-guesser.utility';
 
 @Component({
   selector: 'app-prettier',
   templateUrl: './prettier.component.html',
-  styleUrls: ['./prettier.component.scss']
+  styleUrls: ['./prettier.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrettierComponent {
   ContentType = ContentType;

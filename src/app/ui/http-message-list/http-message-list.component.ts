@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpMessageModel } from '../../utility/response/http-message.model';
 
 @Component({
   selector: 'app-http-message-list',
   templateUrl: './http-message-list.component.html',
-  styleUrls: ['./http-message-list.component.scss']
+  styleUrls: ['./http-message-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HttpMessageListComponent implements OnInit {
   activeMessage: HttpMessageModel = null;
