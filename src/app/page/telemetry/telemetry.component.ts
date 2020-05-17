@@ -23,4 +23,12 @@ export class TelemetryComponent implements OnInit {
       console.log(data);
     });
   }
+
+  selectedMessage(message: HttpMessageModel) {
+    if (this.activeMessage === message) {
+      this.activeMessage = null;
+    } else {
+      this.activeMessage = message;
+    }
+  }
 }
