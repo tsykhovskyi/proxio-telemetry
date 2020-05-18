@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HttpMessageModel } from '../../utility/response/http-message.model';
-import { TrafficService } from '../../data-access/traffic.service';
+import { TrafficService } from '../../service/traffic.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-telemetry',
@@ -10,18 +12,20 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TelemetryComponent implements OnInit {
+  domain: string;
   messages$: Observable<HttpMessageModel[]>;
 
   activeMessage: HttpMessageModel = null;
 
-  constructor(private traffic: TrafficService) {}
+  constructor(private traffic: TrafficService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.messages$ = this.traffic.getTraffic();
-
-    this.messages$.subscribe(data => {
-      console.log(data);
-    });
+    this.messages$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        const domain = params.get('domain');
+        return this.traffic.getTraffic(domain);
+      })
+    );
   }
 
   selectedMessage(message: HttpMessageModel) {

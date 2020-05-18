@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TrafficHttpService } from './traffic-http.service';
-import { TrafficWsService } from './traffic-ws.service';
+import { TrafficHttpService } from '../data-access/traffic-http.service';
+import { TrafficWsService } from '../data-access/traffic-ws.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { HttpMessageModel } from '../utility/response/http-message.model';
 
@@ -16,12 +16,13 @@ export class TrafficService {
     this.messages$ = new BehaviorSubject<HttpMessageModel[]>(this.messages);
   }
 
-  getTraffic() {
-    this.trafficHttp.getTraffic().subscribe(data => {
+  getTraffic(domain: string) {
+    console.log('listening for ' + domain);
+    this.trafficHttp.getTraffic(domain).subscribe(data => {
       this.messages = data;
       this.emit();
     });
-    this.trafficWs.subscribeOnTraffic().subscribe(data => this.handleNewMessage(data));
+    this.trafficWs.subscribeOnTraffic(domain).subscribe(data => this.handleNewMessage(data));
 
     return this.messages$;
   }

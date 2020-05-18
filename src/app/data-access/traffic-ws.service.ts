@@ -7,10 +7,10 @@ import { HttpMessageModel } from '../utility/response/http-message.model';
   providedIn: 'root'
 })
 export class TrafficWsService {
-  public subscribeOnTraffic(): Observable<HttpMessageModel> {
+  public subscribeOnTraffic(domain: string): Observable<HttpMessageModel> {
     const subject = new Subject<HttpMessageModel>();
 
-    const ws = new WebSocket('ws://ui.proxio.rd/ws');
+    const ws = new WebSocket('ws://ui.proxio.rd/ws?domain=' + domain);
 
     ws.onmessage = event => {
       const data = event.data;

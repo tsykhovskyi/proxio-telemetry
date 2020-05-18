@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpMessageModel } from '../utility/response/http-message.model';
 
@@ -7,15 +7,12 @@ import { HttpMessageModel } from '../utility/response/http-message.model';
   providedIn: 'root'
 })
 export class TrafficHttpService {
-  private readonly apiHost: string;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-    // this.apiHost = 'http://ui.localhost:80';
-    this.apiHost = '';
-  }
+  public getTraffic(domain: string): Observable<HttpMessageModel[]> {
+    const params = new HttpParams().set('domain', domain);
+    console.log(params);
 
-  public getTraffic(): Observable<HttpMessageModel[]> {
-    // @ts-ignore
-    return this.http.get(this.apiHost + '/m');
+    return this.http.get<HttpMessageModel[]>('/m', { params });
   }
 }
