@@ -1,4 +1,6 @@
 <div class="table-container">
+  <app-filter></app-filter>
+
   <table class="table is-fullwidth is-hoverable">
     <thead>
       <th>Method</th>
@@ -11,7 +13,7 @@
         *ngFor="let message of messages"
         [ngClass]="{ 'has-background-grey-light': activeMessage === message }"
         (click)="onClick(message)"
-        style="cursor: pointer"
+        style="cursor: pointer;"
       >
         <td>
           <span class="tag is-success">{{ message.Request.Method }}</span>

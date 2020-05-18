@@ -19,6 +19,7 @@ import { JsonFilterPipe } from './utility/render/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
+import { FilterComponent } from './ui/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginComponent } from './page/login/login.component';
     ExpandedNodesPipe,
     JsonFilterPipe,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    FilterComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, FormsModule],
   providers: [],
