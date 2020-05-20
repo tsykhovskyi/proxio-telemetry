@@ -22,8 +22,8 @@ export class TelemetryComponent implements OnInit {
   ngOnInit(): void {
     this.messages$ = this.route.paramMap.pipe(
       switchMap(params => {
-        const domain = params.get('domain');
-        return this.traffic.getTraffic(domain);
+        this.domain = params.get('domain');
+        return this.traffic.getTraffic(this.domain);
       })
     );
   }

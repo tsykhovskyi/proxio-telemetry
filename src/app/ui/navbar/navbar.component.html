@@ -1,27 +1,19 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" routerLink="/">
-        <span class="tag is-info is-large">Proxio</span>
-    </a>
-
-    <a
-      role="button"
-      class="navbar-burger burger"
-      aria-label="menu"
-      aria-expanded="false"
-      data-target="navbarBasicExample"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-menu">
     <div class="navbar-start">
+      <span class="navbar-item is-bold">
+        {{ domain }}
+      </span>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+    </div>
+
+    <div class="navbar-end" *ngIf="authData">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          Tunnels
+          Switch tunnel
         </a>
 
         <div class="navbar-dropdown">
@@ -35,13 +27,19 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary is-small">
             <strong>Logout</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end" *ngIf="!authData">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary is-small">
+            <strong>Login</strong>
           </a>
         </div>
       </div>
