@@ -38,9 +38,9 @@
     <div class="navbar-end" *ngIf="!authData">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary is-small">
+          <button class="button is-primary is-small" (click)="login()">
             <strong>Login</strong>
-          </a>
+          </button>
         </div>
       </div>
     </div>

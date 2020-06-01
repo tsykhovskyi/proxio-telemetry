@@ -11,8 +11,6 @@ export class TrafficHttpService {
 
   public getTraffic(domain: string): Observable<HttpMessageModel[]> {
     const params = new HttpParams().set('domain', domain);
-    console.log(params);
-
-    return this.http.get<HttpMessageModel[]>('/m', { params });
+    return this.http.get<HttpMessageModel[]>('/api/m', { params });
   }
 }

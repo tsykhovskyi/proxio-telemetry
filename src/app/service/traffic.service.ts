@@ -17,7 +17,6 @@ export class TrafficService {
   }
 
   getTraffic(domain: string) {
-    console.log('listening for ' + domain);
     this.trafficHttp.getTraffic(domain).subscribe(data => {
       this.messages = data;
       this.emit();

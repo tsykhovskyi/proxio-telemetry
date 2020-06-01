@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TelemetryComponent } from './page/telemetry/telemetry.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpMessageListComponent } from './ui/http-message-list/http-message-list.component';
 import { HttpMessageInfoComponent } from './ui/http-message/http-message-info.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
 import { FilterComponent } from './ui/filter/filter.component';
+import { DomainInterceptor } from './data-access/interceptors/domain.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FilterComponent } from './ui/filter/filter.component';
     FilterComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, FormsModule],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true }],
 
   bootstrap: [AppComponent]
 })
