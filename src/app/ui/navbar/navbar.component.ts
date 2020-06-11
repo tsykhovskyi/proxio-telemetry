@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthData } from '../../utility/response/auth-data';
-import { AuthenticationHttpService } from '../../data-access/authentication-http.service';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from '../../data-access/service/authentication.service';
+import { share } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +11,11 @@ import { AuthenticationHttpService } from '../../data-access/authentication-http
 })
 export class NavbarComponent implements OnInit {
   @Input() domain: string;
-  @Input() authData: AuthData = null;
+  authData$: Observable<AuthData>;
 
-  constructor(private authHttp: AuthenticationHttpService) {}
+  constructor(private authentication: AuthenticationService) {
+    this.authData$ = authentication.authDataSubject$.pipe(share());
+  }
 
   ngOnInit(): void {}
-
-  login() {
-    this.authHttp.test().subscribe();
-  }
 }

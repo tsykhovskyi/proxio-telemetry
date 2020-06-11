@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HttpMessageModel } from '../utility/response/http-message.model';
+import { HttpMessageModel } from '../../utility/response/http-message.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class TrafficWsService {
     const subject = new Subject<HttpMessageModel>();
 
     const token = this.route.snapshot.queryParamMap.get('token');
-    const ws = new WebSocket('ws://ui.proxio.rd/api/ws?domain=' + domain + '&token=' + token);
+    const ws = new WebSocket('ws://ui.proxio.rd/api/domain/ws?domain=' + domain + '&token=' + token);
 
     ws.onmessage = event => {
       const data = event.data;

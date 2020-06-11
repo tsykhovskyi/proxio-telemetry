@@ -10,7 +10,7 @@
       </a>
     </div>
 
-    <div class="navbar-end" *ngIf="authData">
+    <div class="navbar-end" *ngIf="authData$ | async">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Switch tunnel
@@ -35,10 +35,10 @@
         </div>
       </div>
     </div>
-    <div class="navbar-end" *ngIf="!authData">
+    <div class="navbar-end" *ngIf="!(authData$ | async)">
       <div class="navbar-item">
         <div class="buttons">
-          <button class="button is-primary is-small" (click)="login()">
+          <button class="button is-primary is-small">
             <strong>Login</strong>
           </button>
         </div>

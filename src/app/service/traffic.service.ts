@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TrafficHttpService } from '../data-access/traffic-http.service';
-import { TrafficWsService } from '../data-access/traffic-ws.service';
+import { TrafficHttpService } from '../data-access/http/traffic-http.service';
+import { TrafficWsService } from '../data-access/http/traffic-ws.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { HttpMessageModel } from '../utility/response/http-message.model';
 

@@ -18,6 +18,7 @@ export class HttpMessageListComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick(message: HttpMessageModel) {
+    this.activeMessage = message;
     this.selected.emit(message);
   }
 }

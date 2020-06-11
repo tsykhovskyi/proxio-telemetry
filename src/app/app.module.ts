@@ -21,6 +21,7 @@ import { NavbarComponent } from './ui/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
 import { FilterComponent } from './ui/filter/filter.component';
 import { DomainInterceptor } from './data-access/interceptors/domain.interceptor';
+import { AuthenticationInterceptor } from './data-access/interceptors/authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import { DomainInterceptor } from './data-access/interceptors/domain.interceptor
     FilterComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, FormsModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }
+  ],
 
   bootstrap: [AppComponent]
 })
