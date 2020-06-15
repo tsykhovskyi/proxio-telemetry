@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthData } from '../../utility/response/auth-data';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../../data-access/service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 import { share } from 'rxjs/operators';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationHttpService } from './data-access/http/authentication-http.service';
 import { tap } from 'rxjs/operators';
-import { AuthenticationService } from './data-access/service/authentication.service';
+import { AuthenticationService } from './service/authentication.service';
 
 @Component({
   selector: 'app-root',

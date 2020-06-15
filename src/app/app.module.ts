@@ -22,6 +22,7 @@ import { LoginComponent } from './page/login/login.component';
 import { FilterComponent } from './ui/filter/filter.component';
 import { DomainInterceptor } from './data-access/interceptors/domain.interceptor';
 import { AuthenticationInterceptor } from './data-access/interceptors/authentication.interceptor';
+import { ErrorComponent } from './page/error/error.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthenticationInterceptor } from './data-access/interceptors/authentica
     JsonFilterPipe,
     NavbarComponent,
     LoginComponent,
-    FilterComponent
+    FilterComponent,
+    ErrorComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule, FormsModule],
   providers: [
