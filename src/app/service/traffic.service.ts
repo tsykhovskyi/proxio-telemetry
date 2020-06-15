@@ -38,21 +38,29 @@ export class TrafficService {
     return this.messages$;
   }
 
+  /**
+   * Update or add by ID new HTTP message to collection
+   */
   private handleNewMessage(message: HttpMessageModel) {
     const messages = this.messages$.value;
     if (messages.length > 0 && messages[0].Id === message.Id) {
-      console.log(messages);
       messages.shift();
     }
     messages.unshift(message);
     this.newMessageCollection(messages);
   }
 
+  /**
+   * Filter messages by StartedAt timestamp desc(newest first)
+   */
   private newMessageCollection(messages: HttpMessageModel[]) {
     const sorted = messages.concat().sort((a, b) => b.Time.StartedAt.localeCompare(a.Time.StartedAt));
     this.messages$.next(sorted);
   }
 
+  /**
+   * Redirect to related error page
+   */
   private errorHandling(err: HttpErrorResponse) {
     return this.router.navigate(['/error', err.status]);
   }

@@ -23,13 +23,7 @@ export class TelemetryComponent implements OnInit {
     this.messages$ = this.route.paramMap.pipe(
       switchMap(params => {
         this.domain = params.get('domain');
-        return this.traffic.getTraffic(this.domain).pipe(
-          catchError(err => {
-            console.log('err');
-            this.router.navigate(['/error', '403'], { skipLocationChange: true });
-            return of(null);
-          })
-        );
+        return this.traffic.getTraffic(this.domain);
       })
     );
   }

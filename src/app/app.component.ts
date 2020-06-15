@@ -16,12 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authHttp
       .authenticatedData()
-      .pipe(
-        tap(data => {
-          console.log(data);
-          this.authentication.authenticated(data);
-        })
-      )
+      .pipe(tap(data => this.authentication.authenticated(data)))
       .subscribe();
   }
 }
